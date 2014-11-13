@@ -2,7 +2,6 @@ package keys
 
 import "github.com/bmizerany/assert"
 import "testing"
-import "sort"
 
 func TestKeys(t *testing.T) {
 	m := map[string]interface{}{
@@ -11,9 +10,7 @@ func TestKeys(t *testing.T) {
 		"baz": true,
 	}
 
-	got := Keys(m)
-  sort.Strings(got)
-
+	got := Sorted(m)
 	exp := []string{"bar", "baz", "foo"}
 	assert.Equal(t, exp, got)
 }
